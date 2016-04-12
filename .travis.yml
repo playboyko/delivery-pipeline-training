@@ -5,7 +5,7 @@ before_install:
  - "git submodule init && git submodule update"
  - "npm install"
 notifications:
- - slack: travisci: WrZC6AK2axk6c60pHwf0dPlH
+ - slack: 'devops-training-spb:WrZC6AK2axk6c60pHwf0dPlH#general'
 services:
  - postgresql
 before_script:

@@ -1,13 +1,13 @@
 language: node_js
 node_js: 
-	- "5.10.1"
+ - "5.10.1"
 before_install:
-	- "git submodule init && git submodule update"
-	- "npm install"
+ - "git submodule init && git submodule update"
+ - "npm install"
 services:
-	- postgresql
+ - postgresql
 before_script:
-	- psql -c 'create database crudtest;' -U postgres
+ - psql -c 'create database crudtest;' -U postgres
 env:
-	- DATABASE_URL=postgres://postgres@localhost/crudtest
+ - DATABASE_URL=postgres://postgres@localhost/crudtest
 

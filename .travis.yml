@@ -1,0 +1,13 @@
+language: node_js
+node_js: 
+	- "5.10.1"
+before_install:
+	- "git submodule init && git submodule update"
+	- "npm install"
+services:
+	- postgresql
+before_script:
+	- psql -c 'create database crudtest;' -U postgres
+env:
+	- DATABASE_URL=postgres://postgres@localhost/crudtest
+

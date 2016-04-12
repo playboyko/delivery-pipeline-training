@@ -3,11 +3,11 @@ services:
  - postgresql
 node_js: 
  - "5.10.1"
-postgresql:
- - "9.4"
+addons:
+  postgresql: "9.4"
 before_script:
  - bash install.sh
 script:
  - source env.sh && npm run test
 notifications:
- - slack: devops-training-spb:WrZC6AK2axk6c60pHwf0dPlH
+  slack: devops-training-spb:WrZC6AK2axk6c60pHwf0dPlH

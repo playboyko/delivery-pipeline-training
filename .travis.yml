@@ -4,10 +4,13 @@ node_js:
 before_install:
  - "git submodule init && git submodule update"
  - "npm install"
+notifications:
+ - slack: travisci: WrZC6AK2axk6c60pHwf0dPlH
 services:
  - postgresql
 before_script:
- - psql -c 'create database crudtest;' -U postgres
+ - psql -c "CREATE USER crudtest WITH PASSWORD 'crudtest';" -U postgres
+ - psql -c 'create database crudtest;' -U crudtest -W crudtest
 env:
- - DATABASE_URL=postgres://postgres@localhost/crudtest
+ - DATABASE_URL=postgres://crudtest:crudtest@localhost/crudtest
 

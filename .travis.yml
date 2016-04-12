@@ -1,16 +1,14 @@
 language: node_js
-node_js: 
- - "5.10.1"
-before_install:
- - "git submodule init && git submodule update"
- - "npm install"
-notifications:
- - slack: 'devops-training-spb:WrZC6AK2axk6c60pHwf0dPlH#general'
 services:
  - postgresql
-before_script:
- - psql -c "CREATE USER crudtest WITH PASSWORD 'crudtest';" -U postgres
- - psql -c 'create database crudtest;' -U crudtest -W crudtest
+node_js: 
+ - "5.10.1"
+postgresql:
+ - "9.4"
+before_install:
+ - "./install.sh"
+notifications:
+ - slack: 'devops-training-spb:WrZC6AK2axk6c60pHwf0dPlH#general'
 env:
  - DATABASE_URL=postgres://crudtest:crudtest@localhost/crudtest
 
